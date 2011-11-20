@@ -1,13 +1,11 @@
 Feature: Example
 
 Scenario: Division by 3
-    # Try to change one of the values below to provoke a failure
     When I have a division by 3
     Then the result should contain Foo
 
 
 Scenario: Division by 5
-    # Try to change one of the values below to provoke a failure
     When I have a division by 5
     Then the result should contain Bar
 

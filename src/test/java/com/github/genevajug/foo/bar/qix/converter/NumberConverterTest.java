@@ -1,106 +1,104 @@
 package com.github.genevajug.foo.bar.qix.converter;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.fest.assertions.Assertions.assertThat;
 
 public class NumberConverterTest {
-    
+
     private NumberConverter numberConverter;
 
     @Before
-    public void before(){
+    public void before() {
         numberConverter = new NumberConverter();
     }
 
 
     @Test
-        public void shouldReturn1WhenTheNumberIsDivisibleBy1(){
-            assertEquals("1", numberConverter.convert(1));
-        }
+    public void shouldReturn1WhenTheNumberIsDivisibleBy1() {
+        assertThat(numberConverter.convert(1)).isEqualTo("1");
+    }
 
 
     @Test
-        public void shouldReturn2WhenTheNumberIsDivisibleBy2(){
-            assertEquals("2", numberConverter.convert(2));
-            //Assertions.assertThat(numberConverter.convert(3)).isEqualTo("foo");
-        }
-
-    @Test
-    public void shouldReturnFooWhenTheNumberIsDivisibleBy3(){
-        assertEquals("FooFoo", numberConverter.convert(3));
+    public void shouldReturn2WhenTheNumberIsDivisibleBy2() {
+        assertThat(numberConverter.convert(2)).isEqualTo("2");
     }
 
     @Test
-    public void shouldReturn4WhenTheNumberIsDivisibleBy4(){
-            assertEquals("4", numberConverter.convert(4));
+    public void shouldReturnFooWhenTheNumberIsDivisibleBy3() {
+        assertThat(numberConverter.convert(3)).isEqualTo("FooFoo");
     }
 
     @Test
-    public void shouldReturn5WhenTheNumberIsDivisibleByBarBar(){
-            assertEquals("BarBar", numberConverter.convert(5));
+    public void shouldReturn4WhenTheNumberIsDivisibleBy4() {
+        assertThat(numberConverter.convert(4)).isEqualTo("4");
     }
 
     @Test
-    public void shouldReturnFooWhenTheNumberIsDivisibleBy6(){
-        assertEquals("Foo", numberConverter.convert(6));
+    public void shouldReturn5WhenTheNumberIsDivisibleByBarBar() {
+        assertThat(numberConverter.convert(5)).isEqualTo("BarBar");
     }
 
     @Test
-    public void shouldReturnQixQixWhenTheNumberIsDivisibleBy7(){
-        assertEquals("QixQix", numberConverter.convert(7));
+    public void shouldReturnFooWhenTheNumberIsDivisibleBy6() {
+        assertThat(numberConverter.convert(6)).isEqualTo("Foo");
     }
 
     @Test
-    public void shouldReturn8WhenTheNumberIsDivisibleBy8(){
-        assertEquals("8", numberConverter.convert(8));
+    public void shouldReturnQixQixWhenTheNumberIsDivisibleBy7() {
+        assertThat(numberConverter.convert(7)).isEqualTo("QixQix");
     }
 
     @Test
-    public void shouldReturnFooWhenTheNumberIsDivisibleBy9(){
-        assertEquals("Foo", numberConverter.convert(9));
+    public void shouldReturn8WhenTheNumberIsDivisibleBy8() {
+        assertThat(numberConverter.convert(8)).isEqualTo("8");
     }
 
     @Test
-    public void shouldReturnBarWhenTheNumberIsDivisibleBy10(){
-        assertEquals("Bar", numberConverter.convert(10));
+    public void shouldReturnFooWhenTheNumberIsDivisibleBy9() {
+        assertThat(numberConverter.convert(9)).isEqualTo("Foo");
     }
 
     @Test
-    public void shouldReturnFooBarWhenTheNumberIs51(){
-        assertEquals("FooBar", numberConverter.convert(51));
+    public void shouldReturnBarWhenTheNumberIsDivisibleBy10() {
+        assertThat(numberConverter.convert(10)).isEqualTo("Bar");
     }
 
     @Test
-    public void shouldReturnFooBarWhenTheNumberIs53(){
-        assertEquals("BarFoo", numberConverter.convert(53));
+    public void shouldReturnFooBarWhenTheNumberIs51() {
+        assertThat(numberConverter.convert(51)).isEqualTo("FooBar");
     }
 
     @Test
-    public void shouldReturnFooBarWhenTheNumberIs21(){
-        assertEquals("FooQix", numberConverter.convert(21));
+    public void shouldReturnBarFooWhenTheNumberIs53() {
+        assertThat(numberConverter.convert(53)).isEqualTo("BarFoo");
     }
 
     @Test
-    public void shouldReturnFooBarWhenTheNumberIs13(){
-        assertEquals("Foo", numberConverter.convert(13));
+    public void shouldReturnFooQixWhenTheNumberIs21() {
+        assertThat(numberConverter.convert(21)).isEqualTo("FooQix");
     }
 
     @Test
-        public void shouldReturnFooBarWhenTheNumberIs15(){
-            assertEquals("FooBarBar", numberConverter.convert(15));
-        }
-
-    @Test
-    public void shouldReturnFooBarWhenTheNumberIs33(){
-        assertEquals("FooFooFoo", numberConverter.convert(33));
+    public void shouldReturnFooWhenTheNumberIs13() {
+        assertThat(numberConverter.convert(13)).isEqualTo("Foo");
     }
 
     @Test
-    public void shouldReturnFooBarBarWhenTheNumberIs45(){
-        assertEquals("FooBarBar", numberConverter.convert(45));
+    public void shouldReturnFooBarBarWhenTheNumberIs15() {
+        assertThat(numberConverter.convert(15)).isEqualTo("FooBarBar");
+    }
+
+    @Test
+    public void shouldReturnFooFooFooWhenTheNumberIs33() {
+        assertThat(numberConverter.convert(33)).isEqualTo("FooFooFoo");
+    }
+
+    @Test
+    public void shouldReturnFooBarBarWhenTheNumberIs45() {
+        assertThat(numberConverter.convert(45)).isEqualTo("FooBarBar");
     }
 
 }

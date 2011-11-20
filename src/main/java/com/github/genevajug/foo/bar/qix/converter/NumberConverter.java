@@ -9,8 +9,8 @@ public class NumberConverter {
     
     public String convert(int numberToConvert) {
         StringBuilder result = new StringBuilder();
-        result. //
-            append(divisionLookup(numberToConvert));
+        result.append(divisionLookup(numberToConvert));
+
         String entry = String.valueOf(numberToConvert);
         for (char character : entry.toCharArray()) {
             Integer value = Integer.valueOf(String.valueOf(character));
