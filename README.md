@@ -35,5 +35,5 @@ A vous de jouer !
 
 Votre code doit tourner dans une JVM, si vous faites des trucs inhabituels, laissez nous des instructions pour faire tourner votre code. 
 Pour participer, forker ce projet et envoyer nous votre pull request.
-Vous présenterez votre solution le mercredi 14 Décembre lors d'un codind dojo spécial "Code Story"
+Vous présenterez votre solution le mercredi 14 Décembre lors d'un coding dojo spécial "Code Story"
 
