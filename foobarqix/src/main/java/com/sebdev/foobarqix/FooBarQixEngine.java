@@ -1,5 +1,6 @@
 package com.sebdev.foobarqix;
 
+import com.sebdev.foobarqix.math.VeryBigIntegerUtils;
 import com.sebdev.foobarqix.rule.Rule;
 import com.sebdev.foobarqix.rule.RuleDivisor;
 import com.sebdev.foobarqix.rule.RuleContent;
@@ -23,20 +24,13 @@ public class FooBarQixEngine {
     
     /**
      * return the foobarqix result for this.value
-     */
+     */   
     public String compute() {
-        try {
-            return computeFooBarQix();
-        } catch (NumberFormatException ex) {
-            //If the value is not computable, it is returned unchanged
+        
+        if (!VeryBigIntegerUtils.isInteger(this.value)) {
             return this.value;
         }
-    }
-    
-    private String computeFooBarQix() {
-        
-        int intValue = Integer.valueOf(this.value);
-        List<Rule> rules = prepareRules(intValue);
+        List<Rule> rules = prepareRules();
         String result = computeRules(rules);
         
         if (result.isEmpty()) {
@@ -46,9 +40,9 @@ public class FooBarQixEngine {
         return result;
     }
     
-    private List<Rule> prepareRules(int intValue) {
+    private List<Rule> prepareRules() {
         List<Rule> rules = new ArrayList<Rule>();
-        rules.add(new RuleDivisor(intValue));
+        rules.add(new RuleDivisor(value));
         for (int j = 0; j < value.length(); j++) {
             char car = value.charAt(j);
             rules.add(new RuleContent(car));

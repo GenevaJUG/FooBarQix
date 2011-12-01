@@ -52,6 +52,11 @@ public class FooBarQixEngineTest {
     public void testComputeMultipleContent() {
         assertFooBarQix("33", "FooFooFoo");
     }
+    
+    @Test
+    public void testComputeVeryBigInteger() {
+        assertFooBarQix("333333555555777777", "FooQixFooFooFooFooFooFooBarBarBarBarBarBarQixQixQixQixQixQix");
+    }
 
     private void assertFooBarQix(final String input, final String expectedResult) {
         FooBarQixEngine fooBarQix = new FooBarQixEngine(input);
