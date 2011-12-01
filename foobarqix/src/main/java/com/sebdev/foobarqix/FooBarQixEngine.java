@@ -65,13 +65,13 @@ public class FooBarQixEngine {
     }
     
     private String computeRule(Rule rule) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         List<FooBarQixEnum> fooBars = Arrays.asList(FooBarQixEnum.values());
         for (FooBarQixEnum fooBar : fooBars) {
             if (rule.isValid(fooBar)) {
-                result += fooBar.getResult();
+                result.append(fooBar.getResult());
             }
         }
-        return result;
+        return result.toString();
     }
 }
