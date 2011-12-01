@@ -1,7 +1,12 @@
 package com.sebdev.foobarqix;
 
+/**
+ * 
+ * @author jempe
+ */
 public enum FooBarQixEnum {
     
+
     FOO(3, "Foo"),
     BAR(5, "Bar"),
     QIX(7, "Qix");
@@ -16,14 +21,24 @@ public enum FooBarQixEnum {
         this.result = result;
     }
     
+    /**
+     * Return the divisor for the rule
+     */
     public int getDivisor(){
         return this.valueInt;
     }
     
-        public char getDivisorChar(){
+    /**
+     * Return the disisor for the rule converted in char
+     * It's used to optimised some algorithm evaluations
+     */
+    public char getDivisorChar(){
         return this.valueChar;
     }
     
+    /**
+     * return the replacement value of FooBarQix algorithm
+     */
     public String getResult(){
         return this.result;
     }

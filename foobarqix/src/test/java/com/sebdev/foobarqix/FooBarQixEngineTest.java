@@ -3,9 +3,9 @@ package com.sebdev.foobarqix;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class FooBarQixTest {
+public class FooBarQixEngineTest {
 
-    public FooBarQixTest() {
+    public FooBarQixEngineTest() {
     }
 
     @Test
@@ -54,7 +54,7 @@ public class FooBarQixTest {
     }
 
     private void assertFooBarQix(final String input, final String expectedResult) {
-        FooBarQix fooBarQix = new FooBarQix(input);
+        FooBarQixEngine fooBarQix = new FooBarQixEngine(input);
         assertEquals("Not the good result", expectedResult, fooBarQix.compute());
     }
 }

@@ -1,68 +1,33 @@
 package com.sebdev.foobarqix;
 
-import com.sebdev.foobarqix.rule.Rule;
-import com.sebdev.foobarqix.rule.RuleDivisor;
-import com.sebdev.foobarqix.rule.RuleContent;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
+/**
+ * Console IHM for FooBarQix algorithm
+ */
 public class FooBarQix {
-    
-    private final String value;
-    
-    public FooBarQix(String value) {
-        this.value = value;
-    }
-    
-    public String compute() {
-        try {
-            return computeFooBarQix();
-        } catch (NumberFormatException ex) {
-            //If the value is not computable, it is returned unchanged
-            return this.value;
+
+    private static final String EXIT_CHAR = "q";
+
+    /**
+     * Usage: 
+     *   enter q to exit program
+     *   enter any value to display the foobarqix result
+     */
+    public static void main(String[] args) throws Exception {
+        String userInput = null;
+        while (!EXIT_CHAR.equals(userInput)) {
+            System.out.print("Veuillez saisir une valeur (q pour sortir):");
+            userInput = inputString();
+            FooBarQixEngine barQix = new FooBarQixEngine(userInput);
+            System.out.println(barQix.compute());
         }
     }
-    
-    private String computeFooBarQix() {
-        
-        int intValue = Integer.valueOf(this.value);
-        List<Rule> rules = createRules(intValue);
-        String result = computeRules(rules);
-        
-        if (result.isEmpty()) {
-            return this.value;
-        }
-        
-        return result;
-    }
-    
-    private List<Rule> createRules(int intValue) {
-        List<Rule> rules = new ArrayList<Rule>();
-        rules.add(new RuleDivisor(intValue));
-        for (int j = 0; j < value.length(); j++) {
-            char car = value.charAt(j);
-            rules.add(new RuleContent(car));
-        }
-        return rules;
-    }
-    
-    private String computeRules(List<Rule> rules) {
-        String result = "";
-        for (Rule rule : rules) {
-            result += computeRule(rule);
-        }
-        return result;
-    }
-    
-    private String computeRule(Rule rule) {
-        String result = "";
-        List<FooBarQixEnum> fooBars = Arrays.asList(FooBarQixEnum.values());
-        for (FooBarQixEnum fooBar : fooBars) {
-            if (rule.isValid(fooBar)) {
-                result += fooBar.getResult();
-            }
-        }
-        return result;
+
+    private static String inputString() throws IOException {
+        BufferedReader inr = new BufferedReader(new InputStreamReader(System.in));
+        return (inr.readLine());
     }
 }
