@@ -1,6 +1,6 @@
-*!/bin/sh
+#!/bin/sh
 exec scala "$0" "$@" 
-!*
+!#
 
 object HelloWorld {
 
