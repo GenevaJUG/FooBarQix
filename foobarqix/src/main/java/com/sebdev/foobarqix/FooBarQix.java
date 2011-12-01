@@ -1,56 +1,68 @@
 package com.sebdev.foobarqix;
 
+import com.sebdev.foobarqix.rule.Rule;
+import com.sebdev.foobarqix.rule.RuleDivisor;
+import com.sebdev.foobarqix.rule.RuleContent;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+
 public class FooBarQix {
-
+    
     private final String value;
-
+    
     public FooBarQix(String value) {
         this.value = value;
     }
-
+    
     public String compute() {
         try {
-            int intValue = Integer.valueOf(this.value);
-            return computeFooBarQix(intValue);
+            return computeFooBarQix();
         } catch (NumberFormatException ex) {
+            //If the value is not computable, it is returned unchanged
             return this.value;
         }
     }
-
-    private String computeFooBarQix(int intValue) {
-        String result = "";
-
-        FooBarQixEnum[] fooBars = FooBarQixEnum.values();
-
-        for (int i = 0; i < fooBars.length; i++) {
-            FooBarQixEnum fooBar = fooBars[i];
-            if (isFooBarQixMultiple(intValue, fooBar)) {
-                result += fooBars[i].getResult();
-            }
-        }
-
-        for (int j = 0; j < value.length(); j++) {
-            char car = value.charAt(j);
-            for (int k = 0; k < fooBars.length; k++) {
-                FooBarQixEnum fooBar = fooBars[k];
-                if (isFooBarQixContent(car, fooBar)) {
-                    result += fooBars[k].getResult();
-                }
-            }
-        }
-
+    
+    private String computeFooBarQix() {
+        
+        int intValue = Integer.valueOf(this.value);
+        List<Rule> rules = createRules(intValue);
+        String result = computeRules(rules);
+        
         if (result.isEmpty()) {
             return this.value;
         }
-
+        
         return result;
     }
-
-    private boolean isFooBarQixContent(char car, FooBarQixEnum fooBar) {
-        return car == fooBar.getDivisorChar();
+    
+    private List<Rule> createRules(int intValue) {
+        List<Rule> rules = new ArrayList<Rule>();
+        rules.add(new RuleDivisor(intValue));
+        for (int j = 0; j < value.length(); j++) {
+            char car = value.charAt(j);
+            rules.add(new RuleContent(car));
+        }
+        return rules;
     }
-
-    private boolean isFooBarQixMultiple(int intValue, FooBarQixEnum fooBar) {
-        return intValue % fooBar.getDivisor() == 0;
+    
+    private String computeRules(List<Rule> rules) {
+        String result = "";
+        for (Rule rule : rules) {
+            result += computeRule(rule);
+        }
+        return result;
+    }
+    
+    private String computeRule(Rule rule) {
+        String result = "";
+        List<FooBarQixEnum> fooBars = Arrays.asList(FooBarQixEnum.values());
+        for (FooBarQixEnum fooBar : fooBars) {
+            if (rule.isValid(fooBar)) {
+                result += fooBar.getResult();
+            }
+        }
+        return result;
     }
 }
