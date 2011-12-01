@@ -44,13 +44,41 @@
       </plugin>
     </plugins>
   </build>
-  <dependencies>
 
+  <repositories>
+    <repository>
+      <id>scala-tools.org</id>
+      <name>releases</name>
+      <url>http://scala-tools.org/repo-releases</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
     <dependency>
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
       <version>2.9.1</version>
     </dependency>
-  </dependencies>
 
+    <dependency>
+      <groupId>org.specs2</groupId>
+      <artifactId>specs2_2.9.1</artifactId>
+      <version>1.6.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.specs2</groupId>
+      <artifactId>specs2-scalaz-core_2.9.1</artifactId>
+      <version>6.0.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.7</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 </project>
