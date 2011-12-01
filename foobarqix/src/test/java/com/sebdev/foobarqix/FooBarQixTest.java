@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  * @author sdevolder
  */
 public class FooBarQixTest {
-    
+
     public FooBarQixTest() {
     }
 
@@ -27,65 +27,62 @@ public class FooBarQixTest {
     @AfterClass
     public static void tearDownClass() throws Exception {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    
-        @Test
-    public void testgetResultNotANumber() {
-        assertFooBarQix( "Hello world", "Hello world");
-    }
-    
-    @Test
-    public void testgetResultNoMatch() {
-        assertFooBarQix( "1", "1");
-    }
-        
-    @Test
-    public void testgetResultMultiple() {
-        assertFooBarQix( "6", "Foo");
-    }  
-    
-    @Test
-    public void testgetResultNumberContent() {
-        assertFooBarQix( "13", "Foo");
-    }  
 
     @Test
-    public void testgetResultDivisorBeforeContent() {
-        assertFooBarQix( "51", "FooBar");
+    public void testComputeNotANumber() {
+        assertFooBarQix("Hello world", "Hello world");
     }
-    
+
     @Test
-    public void testgetResultContentInOrder() {
-        assertFooBarQix( "53", "BarFoo");
+    public void testComputeNoMatch() {
+        assertFooBarQix("1", "1");
     }
-    
-      
+
     @Test
-    public void testgetResultMultipleOrder() {
-        assertFooBarQix( "21", "FooQix");
-    }  
-    
-      
+    public void testComputeMultiple() {
+        assertFooBarQix("6", "Foo");
+    }
+
     @Test
-    public void testgetResultForMultipleDivisors() {
-        assertFooBarQix( "15", "FooBarBar");
-    }  
-    
-      
+    public void testComputeNumberContent() {
+        assertFooBarQix("13", "Foo");
+    }
+
     @Test
-    public void testgetResultMultipleContent() {
-        assertFooBarQix( "33", "FooFooFoo");
-    }  
-    
+    public void testComputeDivisorBeforeContent() {
+        assertFooBarQix("51", "FooBar");
+    }
+
+    @Test
+    public void testComputeContentInOrder() {
+        assertFooBarQix("53", "BarFoo");
+    }
+
+    @Test
+    public void testComputeMultipleOrder() {
+        assertFooBarQix("21", "FooQix");
+    }
+
+    @Test
+    public void testComputeForMultipleDivisors() {
+        assertFooBarQix("15", "FooBarBar");
+    }
+
+    @Test
+    public void testComputeMultipleContent() {
+        assertFooBarQix("33", "FooFooFoo");
+    }
+
     private void assertFooBarQix(final String input, final String expectedResult) {
         FooBarQix fooBarQix = new FooBarQix(input);
-        assertEquals("Not the good result", expectedResult, fooBarQix.getresult());
+        assertEquals("Not the good result", expectedResult, fooBarQix.compute());
     }
 }
