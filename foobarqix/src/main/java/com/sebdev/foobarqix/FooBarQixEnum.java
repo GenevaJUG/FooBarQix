@@ -1,8 +1,7 @@
 package com.sebdev.foobarqix;
 
 /**
- * 
- * @author jempe
+ * Contains all the divisors for FooBarQix algorithm
  */
 public enum FooBarQixEnum {
     
@@ -22,14 +21,14 @@ public enum FooBarQixEnum {
     }
     
     /**
-     * Return the divisor for the rule
+     * Return the value of the divisor
      */
     public int getDivisor(){
         return this.valueInt;
     }
     
     /**
-     * Return the disisor for the rule converted in char
+     * Return the disisor  converted into char
      * It's used to optimised some algorithm evaluations
      */
     public char getDivisorChar(){

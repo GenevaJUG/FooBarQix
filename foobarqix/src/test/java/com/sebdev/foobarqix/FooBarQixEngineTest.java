@@ -5,9 +5,6 @@ import static org.junit.Assert.*;
 
 public class FooBarQixEngineTest {
 
-    public FooBarQixEngineTest() {
-    }
-
     @Test
     public void testComputeNotANumber() {
         assertFooBarQix("Hello world", "Hello world");

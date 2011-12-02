@@ -51,11 +51,11 @@ public class FooBarQixEngine {
     }
     
     private String computeRules(List<Rule> rules) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (Rule rule : rules) {
-            result += computeRule(rule);
+            result.append(computeRule(rule));
         }
-        return result;
+        return result.toString();
     }
     
     private String computeRule(Rule rule) {
