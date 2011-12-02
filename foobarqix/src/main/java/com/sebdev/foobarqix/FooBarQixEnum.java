@@ -5,7 +5,6 @@ package com.sebdev.foobarqix;
  */
 public enum FooBarQixEnum {
     
-
     FOO(3, "Foo"),
     BAR(5, "Bar"),
     QIX(7, "Qix");

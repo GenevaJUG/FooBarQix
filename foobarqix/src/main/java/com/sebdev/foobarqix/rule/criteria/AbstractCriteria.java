@@ -1,49 +1,39 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sebdev.foobarqix.rule.criteria;
 
-/**
- *
- * @author jempe
- */
 public abstract class AbstractCriteria {
 
     public abstract boolean isDivisible(String value);
 
-    protected int[] parseStringToIntArrayold(String value) {
-
-        int[] intTab = new int[value.length()];
-        for (int index = value.length() - 1; index >= 0; index++) {
-            try {
-                intTab[index] = Integer.parseInt(value.substring(index, index - 1));
-            } catch (NumberFormatException ex) {
-                throw new CriteriaVeryBigIntegerFormatException(value, ex);
-            }
-        }
-        return intTab;
-    }
-
-    protected int[] parseStringToIntArray(String value, int lenght) {
-        int temp = value.length() % lenght;
-        int tttt = value.length() / lenght;
-        if (temp != 0) {
-            tttt++;
-        }
-        int[] intTab = new int[tttt];
+    /**
+     * This method  parse an integer reprensented by a string in piece of n digits
+     * @param veryBigInteger - integer to parse
+     * @param parsingSize - number of digit of each piece
+     * @return - int array of veryBigInteger parsing result
+     */
+    protected int[] parseStringToIntArray(String veryBigInteger, int parsingSize) {
+        int firstPieceSize = veryBigInteger.length() % parsingSize;
+        int numberOfPieces = calculateSizeOfArray(veryBigInteger.length(), parsingSize, firstPieceSize);
+        int[] result = new int[numberOfPieces];
         int beginIndex = 0;
-        int endIndex = (temp == 0 ? lenght : temp);
-        for (int index = 0; index < intTab.length; index++) {
+        int endIndex = (firstPieceSize == 0 ? parsingSize : firstPieceSize);
+        for (int resultIndex = 0; resultIndex < result.length; resultIndex++) {
             try {
-                intTab[index] = Integer.parseInt(value.substring(beginIndex, endIndex));
+                result[resultIndex] = Integer.parseInt(veryBigInteger.substring(beginIndex, endIndex));
             } catch (NumberFormatException ex) {
-                throw new CriteriaVeryBigIntegerFormatException(value, ex);
+                throw new CriteriaVeryBigIntegerFormatException(veryBigInteger, ex);
             }
             beginIndex = endIndex;
-            endIndex = endIndex + lenght;
+            endIndex = endIndex + parsingSize;
         }
 
-        return intTab;
+        return result;
+    }
+
+    private int calculateSizeOfArray(int veryBigIntegerLength, int parseLenght, int firstPieceSize) {
+        int numberOfPieces = veryBigIntegerLength / parseLenght;
+        if (firstPieceSize != 0) {
+            numberOfPieces++;
+        }
+        return numberOfPieces;
     }
 }

@@ -13,12 +13,12 @@ import java.util.Map;
  */
 public class RuleDivisor implements Rule {
 
-    private static final Map<FooBarQixEnum, AbstractCriteria> map;
+    private static final Map<FooBarQixEnum, AbstractCriteria> criteriasRules;
     static {
-        map = new EnumMap<FooBarQixEnum, AbstractCriteria>(FooBarQixEnum.class);
-        map.put(FooBarQixEnum.FOO, new CriteriaThree());
-        map.put(FooBarQixEnum.BAR, new CriteriaFive());
-        map.put(FooBarQixEnum.QIX, new CriteriaSeven());
+        criteriasRules = new EnumMap<FooBarQixEnum, AbstractCriteria>(FooBarQixEnum.class);
+        criteriasRules.put(FooBarQixEnum.FOO, new CriteriaThree());
+        criteriasRules.put(FooBarQixEnum.BAR, new CriteriaFive());
+        criteriasRules.put(FooBarQixEnum.QIX, new CriteriaSeven());
     }
     
     private final String value;
@@ -31,7 +31,6 @@ public class RuleDivisor implements Rule {
         this.value = value;
     }
   
-
     /**
      * return true if entered number is divisible by the foobarqix number in parameter
      */
@@ -42,7 +41,10 @@ public class RuleDivisor implements Rule {
             return isDivisibleBy(intValue, fooBarQixEnum.getDivisor());
         } catch (NumberFormatException ex) {
             //For a too big integer, we need to use defined criteria
-            return map.get(fooBarQixEnum).isDivisible(this.value);
+            if (!criteriasRules.containsKey(fooBarQixEnum)) {
+                throw new UnknowCriteriaRule(fooBarQixEnum);
+            }
+            return criteriasRules.get(fooBarQixEnum).isDivisible(this.value);
         }
     }
 
