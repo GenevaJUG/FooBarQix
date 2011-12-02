@@ -2,9 +2,6 @@
  */
 public class FooBarQix {
 
-    public static final int START = 1;
-    public static final int END = 100;
-
     public static final String FOO = "Foo";
     public static final String BAR = "Bar";
     public static final String QIX = "Qix";
@@ -38,9 +35,9 @@ public class FooBarQix {
     }
 
     private void appendDiviseurs() {
-        appendDiviseur(3, "Foo");
-        appendDiviseur(5, "Bar");
-        appendDiviseur(7, "Qix");
+        appendDiviseur(3, FOO);
+        appendDiviseur(5, BAR);
+        appendDiviseur(7, QIX);
     }
 
     private void appendDiviseur(int i, String foo) {
@@ -79,6 +76,6 @@ public class FooBarQix {
     // --------------------------- main() method ---------------------------
 
     public static void main(String[] args) {
-        System.out.println(new FooBarQix(START, END));
+        System.out.println(new FooBarQix(1, 100));
     }
 }
