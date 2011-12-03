@@ -1,0 +1,6 @@
+#!/bin/sh
+mkdir bin 2>/dev/null
+javac -d bin -encoding ISO8859-1 src/ch/genevajug/FooBarQix.java
+cd bin
+java ch.genevajug.FooBarQix
+cd ..
