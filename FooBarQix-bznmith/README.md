@@ -29,6 +29,10 @@ If you want to use a freshly built JAR, the command is:
 
 		$ java -jar target/FooBarQix-bznmith-1.0.jar
 
+Finally you can also use Maven:
+
+		$ mvn exec:java
+
 ### Testing ###
 
 In order to run the included unit tests, run:
