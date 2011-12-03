@@ -16,19 +16,19 @@ public class FooBarQix {
 	 */
 	public String convert(int input) {
 
-		String result = "";
+		StringBuilder result = new StringBuilder();
 
 		for(FBQValues enumValue: FBQValues.values()) {
-			result += enumValue.replaceDivisible(input);
+			result.append(enumValue.replaceDivisible(input));
 		}
 
-		result += replaceCharacters(input);
+		replaceCharacters(input, result);
 
-		if("".equals(result)) {
-			result = Integer.toString(input);
+		if(result.length() == 0) {
+			result.append(Integer.toString(input));
 		}
 
-		return result;
+		return result.toString();
 	}
 
 	/**
@@ -37,16 +37,16 @@ public class FooBarQix {
 	 * @param input the integer to handle
 	 * @return the replaced values (empty if nothing matches)
 	 */
-	private String replaceCharacters(int input) {
-		String result = "";
+	private void replaceCharacters(int input, StringBuilder fbq) {
 		for(char inputCharacter: Integer.toString(input).toCharArray()) {
-			result += FBQValues.replaceCharacter(
-				Integer.valueOf(
-					Character.digit(inputCharacter, 10)
+			fbq.append(
+				FBQValues.replaceCharacter(
+					Integer.valueOf(
+						Character.digit(inputCharacter, 10)
+					)
 				)
 			);
 		}
-		return result;
 	}
 
 	public static void main(String[] args) {
