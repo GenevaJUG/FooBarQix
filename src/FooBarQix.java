@@ -2,29 +2,27 @@
  */
 public class FooBarQix {
 
+// -------------------------- INNER CLASSES --------------------------
+
     private static enum  FBQEnum{
-        FOO (3, "Foo"), BAR(5, "Bar"), QIX(7, "Qix");
+        Foo(3), Bar(5), Qix(7);
 
         private int value;
-        private String replacement;
         private char chValue;
 
-        FBQEnum(int value, String replacement) {
+        FBQEnum(int value) {
             assert value < 10;
             this.value = value;
-            this.replacement = replacement;
             this.chValue = String.valueOf(value).charAt(0);
         }
     }
 
-
 // -------------------------- INSTANCE --------------------------
 
+    int intToProcess;
     StringBuilder sb = new StringBuilder();
 
-    int intToProcess;
-
-    private boolean noFooBarQix = true;
+    private boolean fooBarQixForLine = false;
 
 // --------------------------- CONSTRUCTORS ---------------------------
 
@@ -41,17 +39,17 @@ public class FooBarQix {
         newLine();
     }
 
-    private void newLine() {
-        sb.append('\n');
-        noFooBarQix = true;
-    }
-
     private void appendDiviseurs() {
         for (FBQEnum fbqEnum : FBQEnum.values()) {
             if (intToProcess % fbqEnum.value == 0) {
                 appendFBQ(fbqEnum);
             }
         }
+    }
+
+    private void appendFBQ(FBQEnum fbqEnum) {
+        sb.append(fbqEnum.name());
+        fooBarQixForLine = true;
     }
 
     private void appendContenus() {
@@ -69,24 +67,23 @@ public class FooBarQix {
         }
     }
 
-    private void appendFBQ(FBQEnum fbqEnum) {
-        sb.append(fbqEnum.replacement);
-        noFooBarQix = false;
-    }
-
     private void appendNumberIfNoFooBarQix() {
-        if (noFooBarQix)
+        if (fooBarQixForLine == false)
             sb.append(intToProcess);
     }
 
-    @Override
-    public String toString() {
+    private void newLine() {
+        sb.append('\n');
+        fooBarQixForLine = false;
+    }
+
+    public String allLines() {
         return sb.toString();
     }
 
-    // --------------------------- main() method ---------------------------
+// --------------------------- main() method ---------------------------
 
     public static void main(String[] args) {
-        System.out.println(new FooBarQix(1, 100));
+        System.out.println(new FooBarQix(1, 100).allLines());
     }
 }

@@ -14,11 +14,10 @@ public class TestFooBarQuix {
         assertIntToFooBarQix(13 , "Foo");
         assertIntToFooBarQix(15 , "FooBarBar");
         assertIntToFooBarQix(33 , "FooFooFoo");
-
     }
 
     private void assertIntToFooBarQix(int i, String fooBar) {
-        assertEquals(new FooBarQix(i,i).toString(), fooBar+'\n');
+        assertEquals(new FooBarQix(i,i).allLines(), fooBar+'\n');
     }
 
     @Test
@@ -27,7 +26,5 @@ public class TestFooBarQuix {
         new FooBarQix(1, 1000000);
         System.out.println("1 000 000 en " + (System.currentTimeMillis() - startTime) + " ms.");
     }
-
-
 
 }
