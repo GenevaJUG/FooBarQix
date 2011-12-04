@@ -21,7 +21,7 @@
                     <goal>exec</goal>
                 </goals>
                 <configuration>
-                    <mainClass>com.sebdev.foobarqix.FooBarQix</mainClass>
+                    <mainClass>com.sebdev.foobarqix.Runner</mainClass>
                 </configuration>
             </plugin>
         </plugins>

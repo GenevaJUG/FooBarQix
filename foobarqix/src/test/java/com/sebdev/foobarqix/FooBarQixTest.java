@@ -63,13 +63,6 @@ public class FooBarQixTest {
         assertFooBarQix("FooQixFooFooFooFooFooFooBarBarBarBarBarBarQixQixQixQixQixQix", "333333555555777777");
     }
 
-    @Test
-    public void testComputeListValue() {
-        boolean result = barQix.compute("list").startsWith("1" + System.lineSeparator() + "2");
-        assertTrue("Compulting the reserved word list shoud return foobarqix result", result);
-
-    }
-
     private void assertFooBarQix(final String expectedResult, final String input) {
         assertEquals("Not the good result", expectedResult, barQix.compute(input));
     }

@@ -35,6 +35,6 @@ Execution
 Utilisation
 ===========
 
- * Pour quitter le programme, taper la lettre q
+ * Pour quitter le programme, taper la lettre q.
  * Pour obtenir les 100 premiers résultat tel que demandé par l'exercie, taper le mot list à la demande de saisie.
- * Toute autre entrée sera interprêtée comme une valeur à évaluer par le FooBarQix
+ * Toute autre entrée sera interprêtée comme une valeur à évaluer par le FooBarQix.
