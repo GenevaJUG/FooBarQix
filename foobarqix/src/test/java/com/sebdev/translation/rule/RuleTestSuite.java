@@ -1,11 +1,11 @@
-package com.sebdev.foobarqix.rule;
+package com.sebdev.translation.rule;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    RuleDivisorTest.class,
-    RuleContentTest.class})
+    RuleDivisibleTest.class,
+    RuleComparedContentTest.class})
 public class RuleTestSuite {   
 }

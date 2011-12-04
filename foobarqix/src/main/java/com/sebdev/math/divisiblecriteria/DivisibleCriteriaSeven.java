@@ -1,11 +1,11 @@
-package com.sebdev.foobarqix.rule.criteria;
+package com.sebdev.math.divisiblecriteria;
 
-import com.sebdev.foobarqix.math.MathUtils;
+import com.sebdev.math.MathUtils;
 
 /**
  * Implementation of criteria rule specific to divisor 7
  */
-public class CriteriaSeven extends AbstractCriteria {
+public class DivisibleCriteriaSeven extends AbstractDivisibleCriteria {
 
     @Override
     public boolean isDivisible(String value) {
@@ -21,6 +21,11 @@ public class CriteriaSeven extends AbstractCriteria {
         }
 
         return MathUtils.isDivisibleBy(valueToEvaluate, 7);   
+    }
+
+    @Override
+    public int getDivisorValue() {
+        return 7;
     }
     
 }

@@ -1,6 +1,6 @@
-package com.sebdev.foobarqix.rule.criteria;
+package com.sebdev.math.divisiblecriteria;
 
-public abstract class AbstractCriteria {
+public abstract class AbstractDivisibleCriteria {
 
     public abstract boolean isDivisible(String value);
 
@@ -12,16 +12,12 @@ public abstract class AbstractCriteria {
      */
     protected int[] parseStringToIntArray(String veryBigInteger, int parsingSize) {
         int firstPieceSize = veryBigInteger.length() % parsingSize;
-        int numberOfPieces = calculateSizeOfArray(veryBigInteger.length(), parsingSize, firstPieceSize);
+        int numberOfPieces = calculateSizeOfGeneratedArray(veryBigInteger.length(), parsingSize, firstPieceSize);
         int[] result = new int[numberOfPieces];
         int beginIndex = 0;
         int endIndex = (firstPieceSize == 0 ? parsingSize : firstPieceSize);
         for (int resultIndex = 0; resultIndex < result.length; resultIndex++) {
-            try {
-                result[resultIndex] = Integer.parseInt(veryBigInteger.substring(beginIndex, endIndex));
-            } catch (NumberFormatException ex) {
-                throw new CriteriaVeryBigIntegerFormatException(veryBigInteger, ex);
-            }
+            result[resultIndex] = Integer.parseInt(veryBigInteger.substring(beginIndex, endIndex));
             beginIndex = endIndex;
             endIndex = endIndex + parsingSize;
         }
@@ -29,11 +25,16 @@ public abstract class AbstractCriteria {
         return result;
     }
 
-    private int calculateSizeOfArray(int veryBigIntegerLength, int parseLenght, int firstPieceSize) {
+    private int calculateSizeOfGeneratedArray(int veryBigIntegerLength, int parseLenght, int firstPieceSize) {
         int numberOfPieces = veryBigIntegerLength / parseLenght;
         if (firstPieceSize != 0) {
             numberOfPieces++;
         }
         return numberOfPieces;
     }
+    
+    /**
+     * @return the value for which the criteria is created
+     */
+    public abstract int getDivisorValue();
 }

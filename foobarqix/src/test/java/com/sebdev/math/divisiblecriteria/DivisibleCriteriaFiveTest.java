@@ -1,15 +1,16 @@
-package com.sebdev.foobarqix.rule.criteria;
+package com.sebdev.math.divisiblecriteria;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class CriteriaFiveTest {
+public class DivisibleCriteriaFiveTest {
 
-    private static CriteriaFive criteria;
+    private static DivisbleCriteriaFive criteria;
+    
     @BeforeClass
     public static void setUpClass() throws Exception {
-        criteria = new CriteriaFive();
+        criteria = new DivisbleCriteriaFive();
     }
 
     @Test

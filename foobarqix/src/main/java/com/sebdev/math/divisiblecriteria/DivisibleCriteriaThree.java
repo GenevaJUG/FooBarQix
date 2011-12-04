@@ -1,11 +1,11 @@
-package com.sebdev.foobarqix.rule.criteria;
+package com.sebdev.math.divisiblecriteria;
 
-import com.sebdev.foobarqix.math.MathUtils;
+import com.sebdev.math.MathUtils;
 
 /**
  * Implementation of criteria rule specific to divisor 3
  */
-public class CriteriaThree extends AbstractCriteria {
+public class DivisibleCriteriaThree extends AbstractDivisibleCriteria {
 
     @Override
     public boolean isDivisible(String value) {
@@ -15,5 +15,10 @@ public class CriteriaThree extends AbstractCriteria {
             total += digit;
         }
         return MathUtils.isDivisibleBy(total, 3);
+    }
+
+    @Override
+    public int getDivisorValue() {
+        return 3;
     }
 }
