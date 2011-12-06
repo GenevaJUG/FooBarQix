@@ -2,7 +2,7 @@
 exec scala "$0" "$@" 
 !#
 
-object HelloWorld {
+object FooBarQix {
 	
 	val FBQs = scala.collection.immutable.SortedMap( 3->"Foo", 5->"Bar", 7->"Qix")
 	
@@ -23,7 +23,7 @@ object HelloWorld {
 		((1 to 100) map foobarquix) map println
 	}	
 }
-HelloWorld.main(args)
+FooBarQix.main(args)
 
 
 
