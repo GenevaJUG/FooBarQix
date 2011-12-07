@@ -45,4 +45,9 @@ public class FooBarQixTest {
     public void onRegardeLesDiviseursAvantLeContenu() {
         Assert.assertEquals("FooBar", fooBarQix.affiche(51));
     }
+
+    @Test
+    public void onRegardeLeContenuDansLOrdreOùIlApparait() {
+        Assert.assertEquals("BarFoo", fooBarQix.affiche(53));
+    }
 }
