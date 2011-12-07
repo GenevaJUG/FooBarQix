@@ -50,4 +50,9 @@ public class FooBarQixTest {
     public void onRegardeLeContenuDansLOrdreOùIlApparait() {
         Assert.assertEquals("BarFoo", fooBarQix.affiche(53));
     }
+
+    @Test
+    public void onRegardeLesMultiplesDansLOrdreFooBarQix() {
+        Assert.assertEquals("FooQix", fooBarQix.affiche(21));
+    }
 }
