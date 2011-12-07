@@ -21,6 +21,8 @@ public class FooBarQixTest {
     public void testAffiche() throws Exception {
         Assert.assertEquals("1", fooBarQix.affiche(1));
         Assert.assertEquals("2", fooBarQix.affiche(2));
+        Assert.assertEquals("4", fooBarQix.affiche(4));
+        Assert.assertEquals("8", fooBarQix.affiche(8));
     }
 
     @Test
@@ -69,5 +71,12 @@ public class FooBarQixTest {
     @Test
     public void _33ContientDeuxFois3EtEstDivisiblePar3DoncSEcritFooFooFoo() {
         Assert.assertEquals("FooFooFoo", fooBarQix.affiche(33));
+    }
+
+    @Test
+    public void dernierElementJusquA10() {
+        Assert.assertEquals("Foo", fooBarQix.affiche(9));
+        Assert.assertEquals("Bar", fooBarQix.affiche(10));
+
     }
 }
