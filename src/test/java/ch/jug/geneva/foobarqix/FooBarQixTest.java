@@ -55,4 +55,19 @@ public class FooBarQixTest {
     public void onRegardeLesMultiplesDansLOrdreFooBarQix() {
         Assert.assertEquals("FooQix", fooBarQix.affiche(21));
     }
+
+    @Test
+    public void _13Contient3DoncSecritFoo() {
+        Assert.assertEquals("Foo", fooBarQix.affiche(13));
+    }
+
+    @Test
+    public void _15EstDivisiblePar3Et5EtContientUn5DoncSEcritFooBarBar() {
+        Assert.assertEquals("FooBarBar", fooBarQix.affiche(15));
+    }
+
+    @Test
+    public void _33ContientDeuxFois3EtEstDivisiblePar3DoncSEcritFooFooFoo() {
+        Assert.assertEquals("FooFooFoo", fooBarQix.affiche(33));
+    }
 }
