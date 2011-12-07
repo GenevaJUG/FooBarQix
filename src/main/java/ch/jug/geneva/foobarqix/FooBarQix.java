@@ -18,4 +18,11 @@ public class FooBarQix {
         }
         return stringBuilder.length() > 0 ? stringBuilder.toString() : string;
     }
+
+    public static void main(String[] args) {
+        FooBarQix fooBarQix = new FooBarQix();
+        for (int i = 1; i < 101; i++) {
+            System.out.println(fooBarQix.affiche(i));
+        }
+    }
 }
