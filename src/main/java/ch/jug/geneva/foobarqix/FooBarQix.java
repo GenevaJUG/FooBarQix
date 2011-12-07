@@ -6,6 +6,10 @@ package ch.jug.geneva.foobarqix;
  */
 public class FooBarQix {
     public String affiche(int nombre) {
-        return "" + nombre;
+        String string = "" + nombre;
+        StringBuilder stringBuilder = new StringBuilder();
+        if (nombre % 3 == 0) stringBuilder.append("Foo");
+        if (string.contains("3")) stringBuilder.append("Foo");
+        return stringBuilder.length() > 0 ? stringBuilder.toString() : string;
     }
 }
