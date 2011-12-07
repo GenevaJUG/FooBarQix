@@ -40,4 +40,9 @@ public class FooBarQixTest {
         Assert.assertEquals("QixQix", fooBarQix.affiche(7));
         Assert.assertEquals("Qix", fooBarQix.affiche(14));
     }
+
+    @Test
+    public void onRegardeLesDiviseursAvantLeContenu() {
+        Assert.assertEquals("FooBar", fooBarQix.affiche(51));
+    }
 }
