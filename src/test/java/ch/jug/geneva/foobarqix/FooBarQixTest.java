@@ -28,4 +28,16 @@ public class FooBarQixTest {
         Assert.assertEquals("FooFoo", fooBarQix.affiche(3));
         Assert.assertEquals("Foo", fooBarQix.affiche(6));
     }
+
+    @Test
+    public void siLeNombreEstDivisiblePar5OuContient5EcrireBarALaPlaceDe5() {
+        Assert.assertEquals("BarBar", fooBarQix.affiche(5));
+        Assert.assertEquals("Bar", fooBarQix.affiche(10));
+    }
+
+    @Test
+    public void siLeNombreEstDivisiblePar7OuContient7EcrireQixALaPlaceDe7() {
+        Assert.assertEquals("QixQix", fooBarQix.affiche(7));
+        Assert.assertEquals("Qix", fooBarQix.affiche(14));
+    }
 }
