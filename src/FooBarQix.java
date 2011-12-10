@@ -1,7 +1,6 @@
 /**
  */
 public class FooBarQix {
-
 // -------------------------- INNER CLASSES --------------------------
 
     private static enum  FBQEnum{
@@ -17,42 +16,31 @@ public class FooBarQix {
         }
     }
 
-// -------------------------- INSTANCE --------------------------
+    private final int intToProcess;
 
-    int intToProcess;
-    StringBuilder sb = new StringBuilder();
+    private final StringBuilder line;
 
-    private boolean fooBarQixForLine = false;
-
-// --------------------------- CONSTRUCTORS ---------------------------
-
-    public FooBarQix(final int start, final int end) {
-        for (intToProcess = start; intToProcess < end + 1; intToProcess++) {
-            processLine();
-        }
+    public FooBarQix(int i) {
+        intToProcess = i;
+        line = new StringBuilder();
     }
 
-    private void processLine() {
-        appendDiviseurs();
-        appendContenus();
-        appendNumberIfNoFooBarQix();
-        newLine();
+    public String getFBQLine() {
+        appendFBQPourDiviseur();
+        appendFBQPourChar();
+        appendNumberIfNoFBQ();
+        return line.toString();
     }
 
-    private void appendDiviseurs() {
+    private void appendFBQPourDiviseur() {
         for (FBQEnum fbqEnum : FBQEnum.values()) {
             if (intToProcess % fbqEnum.value == 0) {
-                appendFBQ(fbqEnum);
+                appendFBQName(fbqEnum);
             }
         }
     }
 
-    private void appendFBQ(FBQEnum fbqEnum) {
-        sb.append(fbqEnum.name());
-        fooBarQixForLine = true;
-    }
-
-    private void appendContenus() {
+    private void appendFBQPourChar() {
         String st = String.valueOf(intToProcess);
         for (char c : st.toCharArray()) {
             appendFooBarQuixIfEquals(c);
@@ -62,28 +50,25 @@ public class FooBarQix {
     private void appendFooBarQuixIfEquals(char c) {
         for (FBQEnum fbqEnum : FBQEnum.values()) {
             if (c == fbqEnum.chValue){
-                appendFBQ(fbqEnum);
+                appendFBQName(fbqEnum);
             }
         }
     }
 
-    private void appendNumberIfNoFooBarQix() {
-        if (fooBarQixForLine == false)
-            sb.append(intToProcess);
+    private void appendFBQName(FBQEnum fbqEnum) {
+        line.append(fbqEnum.name());
     }
 
-    private void newLine() {
-        sb.append('\n');
-        fooBarQixForLine = false;
-    }
-
-    public String allLines() {
-        return sb.toString();
+    private void appendNumberIfNoFBQ() {
+        if(line.length() == 0)
+            line.append(intToProcess);
     }
 
 // --------------------------- main() method ---------------------------
 
     public static void main(String[] args) {
-        System.out.println(new FooBarQix(1, 100).allLines());
+        for (int i = 1; i < 100; i++) {
+            System.out.println(new FooBarQix(i).getFBQLine());
+        }
     }
 }

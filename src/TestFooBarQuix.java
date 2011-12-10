@@ -17,13 +17,15 @@ public class TestFooBarQuix {
     }
 
     private void assertIntToFooBarQix(int i, String fooBar) {
-        assertEquals(new FooBarQix(i,i).allLines(), fooBar+'\n');
+        assertEquals(new FooBarQix(i).getFBQLine(), fooBar);
     }
 
     @Test
     public void perf(){
         long startTime = System.currentTimeMillis();
-        new FooBarQix(1, 1000000);
+        for (int i = 1; i < 1000000; i++) {
+            new FooBarQix(i).getFBQLine();
+        }
         System.out.println("1 000 000 en " + (System.currentTimeMillis() - startTime) + " ms.");
     }
 
