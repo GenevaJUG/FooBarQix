@@ -30,6 +30,7 @@ Mise à jour : clarifications sur les règles
  * 15 est divisible par 3 et 5 et contient un 5 donc s'écrit "FooBarBar"
  * 33 contient deux fois 3  et est divisible par 3 donc s'écrit "FooFooFoo"
 
+
 A vous de jouer !
 =================
 
