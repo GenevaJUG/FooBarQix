@@ -21,15 +21,15 @@ public class FooBarQix {
         Window window = new Window();
         
         FooBarQixConverter converter = FooBarQixConverter.getInstance();
-        for (int i = 1; i <= nbLine; i++) {
+        for (int number = 1; number <= nbLine; number++) {
             try {
-                String value = converter.convert(i);
+                String value = converter.convert(number);
                 window.addValue(value);
             } catch (Exception e) {
-                logger.error("Unable to convert value "+i, e);
+                logger.error("Unable to convert value "+number, e);
                 // Error policy, continue and hope user will not see the error
                 // => we display the number. But we send by mail the error so know they are a error.
-                window.addValue(String.valueOf(i));
+                window.addValue(String.valueOf(number));
             }
         }
     }
