@@ -49,18 +49,14 @@ public class FooBarQixConverter {
         }
         
         // if number contain char 3,5,7 add special Values 
-        char[] charArray = String.valueOf(nb).toCharArray(); // convert int to char Array
-        for (char ch : charArray) {
-            int key = Integer.parseInt(Character.toString(ch)); // convert char to int
+        String nbStr = String.valueOf(nb);
+        for (char ch : nbStr.toCharArray()) {
+            int key = Character.digit(ch, 10);
             if (specialValues.containsKey(key)) {
                 result.append(specialValues.get(key));
             }
         }
         
-        // if no special Values return the number
-        if (result.length() == 0){
-            result.append(String.valueOf(nb));
-        }
-        return result.toString();
+        return result.length() == 0 ? nbStr : result.toString();
     }
 }
