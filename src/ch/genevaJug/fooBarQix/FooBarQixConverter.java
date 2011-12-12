@@ -51,7 +51,6 @@ public class FooBarQixConverter {
         // if number contain char 3,5,7 add special Values 
         char[] charArray = String.valueOf(nb).toCharArray(); // convert int to char Array
         for (char ch : charArray) {
-            //Integer key = Integer.valueOf(Character.toString(ch)); // convert char in int
             int key = Integer.parseInt(Character.toString(ch)); // convert char to int
             if (specialValues.containsKey(key)) {
                 result.append(specialValues.get(key));
