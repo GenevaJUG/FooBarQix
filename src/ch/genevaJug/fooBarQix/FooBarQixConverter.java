@@ -18,8 +18,8 @@ public class FooBarQixConverter {
     private final SortedMap<Integer, String> specialValues;
     private FooBarQixConverter () {
         SortedMap<Integer, String> specialValuesTmp = new TreeMap<Integer, String>();
-        specialValuesTmp.put(3, "Foo");
         specialValuesTmp.put(5, "Bar");
+        specialValuesTmp.put(3, "Foo");
         specialValuesTmp.put(7, "Qix");
         specialValues = Collections.unmodifiableSortedMap(specialValuesTmp);
     }
@@ -35,28 +35,28 @@ public class FooBarQixConverter {
      *  if number can be divided by 3,5,7 add special Values
      *  if number contain char 3,5,7 add special Values
      *  if no special Values return the number
-     * @param nb
+     * @param number
      * @return
      */
-    public String convert(int nb) {
+    public String convert(int number) {
+        final String numberStr = String.valueOf(number);
         StringBuilder result = new StringBuilder();
         
         // if number can be divided by 3,5,7 add special Values 
         for (Entry<Integer, String> entry : specialValues.entrySet()) {
-            if (nb % entry.getKey() == 0) {
+            if (number % entry.getKey() == 0) {
                 result.append(entry.getValue());
             }
         }
         
         // if number contain char 3,5,7 add special Values 
-        String nbStr = String.valueOf(nb);
-        for (char ch : nbStr.toCharArray()) {
+        for (char ch : numberStr.toCharArray()) {
             int key = Character.digit(ch, 10);
             if (specialValues.containsKey(key)) {
                 result.append(specialValues.get(key));
             }
         }
         
-        return result.length() == 0 ? nbStr : result.toString();
+        return result.length() == 0 ? numberStr : result.toString();
     }
 }
