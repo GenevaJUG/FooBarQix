@@ -9,6 +9,10 @@ public final class FooBarQixMain {
 
 	private static final int MAX_VALUE = 100;
 
+	static {
+		new FooBarQixMain(); // remove utility class side effect with cobertura
+	}
+
 	private FooBarQixMain() {
 		// utility class
 	}
