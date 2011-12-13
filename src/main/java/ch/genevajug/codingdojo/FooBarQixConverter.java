@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * A converter that apply the FooBarQiz rules to convert a number into a string
+ * 
  * @author "Alban Auzeill"
  */
 public class FooBarQixConverter {
@@ -25,9 +27,11 @@ public class FooBarQixConverter {
 	}
 
 	/**
-	 * @param intValue
+	 * Convert value into the FooBarQiz representation
+	 * 
+	 * @param value
 	 *            the number to convert
-	 * @return the foo bar qix representation of this number
+	 * @return the string representation
 	 */
 	public String convert(int value) {
 		StringBuilder sb = new StringBuilder();

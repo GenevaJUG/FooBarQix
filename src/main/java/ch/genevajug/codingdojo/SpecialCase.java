@@ -1,6 +1,8 @@
 package ch.genevajug.codingdojo;
 
 /**
+ * Contains the special case list of the FooBarQiz rules
+ * 
  * @author "Alban Auzeill"
  */
 public enum SpecialCase {
