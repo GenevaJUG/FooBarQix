@@ -22,7 +22,7 @@ public class MatchRule {
 	}
 
 	/**
-	 * Apply one FooBarQiz rule on a character
+	 * Apply one FooBarQix rule on a character
 	 * 
 	 * @param out
 	 *            the StringBuilder that will receive the result

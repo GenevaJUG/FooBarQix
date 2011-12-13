@@ -1,7 +1,7 @@
 package ch.genevajug.codingdojo;
 
 /**
- * Contains the special case list of the FooBarQiz rules
+ * Contains the special case list of the FooBarQix rules
  * 
  * @author "Alban Auzeill"
  */

@@ -1,7 +1,7 @@
 package ch.genevajug.codingdojo;
 
 /**
- * Used to convert a numeric value to a String value according to one FooBarQiz
+ * Used to convert a numeric value to a String value according to one FooBarQix
  * rule
  * 
  * @author "Alban Auzeill"
@@ -9,7 +9,7 @@ package ch.genevajug.codingdojo;
 public interface ConversionRule {
 
 	/**
-	 * Apply one FooBarQiz rule on an int
+	 * Apply one FooBarQix rule on an int
 	 * 
 	 * @param out
 	 *            the StringBuilder that will receive the result

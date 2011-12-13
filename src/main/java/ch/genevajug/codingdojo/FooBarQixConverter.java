@@ -1,33 +1,18 @@
 package ch.genevajug.codingdojo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A converter that apply the FooBarQiz rules to convert a number into a string
+ * A converter that apply the FooBarQix rules to convert a number into a string
  * 
  * @author "Alban Auzeill"
  */
 public class FooBarQixConverter {
 
-	private static final List<MatchRule> MATCH_RULES = new ArrayList<MatchRule>();
-	static {
-		for (SpecialCase specialCase : SpecialCase.values()) {
-			MATCH_RULES.add(new MatchRule(specialCase));
-		}
-	}
-
-	private static final List<ConversionRule> RULES = new ArrayList<ConversionRule>();
-	static {
-		for (SpecialCase specialCase : SpecialCase.values()) {
-			RULES.add(new DivisibleRule(specialCase));
-		}
-		RULES.add(new ContainRule(MATCH_RULES));
-		RULES.add(new DefaultRule());
-	}
+	private static final List<ConversionRule> RULES = new FooBarQixRuleList();
 
 	/**
-	 * Convert value into the FooBarQiz representation
+	 * Convert value into the FooBarQix representation
 	 * 
 	 * @param value
 	 *            the number to convert

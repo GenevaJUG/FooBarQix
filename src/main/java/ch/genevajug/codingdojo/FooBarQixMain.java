@@ -1,7 +1,7 @@
 package ch.genevajug.codingdojo;
 
 /**
- * Entry point of the Great FooBarQiz program
+ * Entry point of the Great FooBarQix program
  * 
  * @author "Alban Auzeill"
  */
@@ -14,7 +14,7 @@ public final class FooBarQixMain {
 	}
 
 	/**
-	 * Print a list of FooBarQiz conversion
+	 * Print a list of FooBarQix conversion
 	 * 
 	 * @param args
 	 *            command line
