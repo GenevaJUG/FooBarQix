@@ -13,8 +13,8 @@ public class ContainRule implements ConversionRule {
 		this.subRules = subRules;
 	}
 
-	public void apply(StringBuilder out, Base10Value value) {
-		for (char ch : value.toString().toCharArray()) {
+	public void apply(StringBuilder out, int value) {
+		for (char ch : Integer.toString(value).toCharArray()) {
 			apply(out, ch);
 		}
 	}

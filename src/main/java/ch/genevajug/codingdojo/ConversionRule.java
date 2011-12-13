@@ -5,6 +5,6 @@ package ch.genevajug.codingdojo;
  */
 public interface ConversionRule {
 
-	void apply(StringBuilder out, Base10Value value);
+	void apply(StringBuilder out, int value);
 
 }

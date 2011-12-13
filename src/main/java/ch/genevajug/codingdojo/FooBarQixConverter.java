@@ -8,14 +8,19 @@ import java.util.List;
  */
 public class FooBarQixConverter {
 
+	private static final List<MatchRule> MATCH_RULES = new ArrayList<MatchRule>();
+	static {
+		for (SpecialCase specialCase : SpecialCase.values()) {
+			MATCH_RULES.add(new MatchRule(specialCase));
+		}
+	}
+
 	private static final List<ConversionRule> RULES = new ArrayList<ConversionRule>();
 	static {
-		List<MatchRule> matchRules = new ArrayList<MatchRule>();
 		for (SpecialCase specialCase : SpecialCase.values()) {
 			RULES.add(new DivisibleRule(specialCase));
-			matchRules.add(new MatchRule(specialCase));
 		}
-		RULES.add(new ContainRule(matchRules));
+		RULES.add(new ContainRule(MATCH_RULES));
 		RULES.add(new DefaultRule());
 	}
 
@@ -24,8 +29,7 @@ public class FooBarQixConverter {
 	 *            the number to convert
 	 * @return the foo bar qix representation of this number
 	 */
-	public String convert(int intValue) {
-		Base10Value value = new Base10Value(intValue);
+	public String convert(int value) {
 		StringBuilder sb = new StringBuilder();
 		for (ConversionRule rule : RULES) {
 			rule.apply(sb, value);

@@ -5,9 +5,9 @@ package ch.genevajug.codingdojo;
  */
 public class DefaultRule implements ConversionRule {
 
-	public void apply(StringBuilder out, Base10Value value) {
+	public void apply(StringBuilder out, int value) {
 		if (out.length() == 0) {
-			out.append(value.toString());
+			out.append(Integer.toString(value));
 		}
 	}
 

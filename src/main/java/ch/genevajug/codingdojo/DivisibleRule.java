@@ -12,8 +12,8 @@ public class DivisibleRule implements ConversionRule {
 		this.replacement = specialCase.name();
 	}
 
-	public void apply(StringBuilder out, Base10Value value) {
-		if (value.getValue() % denominator == 0) {
+	public void apply(StringBuilder out, int value) {
+		if (value % denominator == 0) {
 			out.append(replacement);
 		}
 	}
