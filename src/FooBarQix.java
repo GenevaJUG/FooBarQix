@@ -55,8 +55,7 @@ public class FooBarQix {
     }
 
     private void appendNamesByContent() {
-        String st = String.valueOf(input);
-        for (char c : st.toCharArray()) {
+        for (char c : String.valueOf(input).toCharArray()) {
             appendNameIfExistsReplacementFor(c);
         }
     }
