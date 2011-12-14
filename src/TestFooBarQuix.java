@@ -8,6 +8,9 @@ public class TestFooBarQuix {
 
     @Test
     public void highLevelTests(){
+        assertIntToFooBarQix(1 , "1");
+        assertIntToFooBarQix(3 , "FooFoo");
+        assertIntToFooBarQix(6 , "Foo");
         assertIntToFooBarQix(51 , "FooBar");
         assertIntToFooBarQix(53 , "BarFoo");
         assertIntToFooBarQix(21 , "FooQix");
@@ -17,14 +20,14 @@ public class TestFooBarQuix {
     }
 
     private void assertIntToFooBarQix(int i, String fooBar) {
-        assertEquals(new FooBarQix(i).getFBQLine(), fooBar);
+        assertEquals(new FooBarQix(i).getReplacementLine(), fooBar);
     }
 
     @Test
     public void perf(){
         long startTime = System.currentTimeMillis();
-        for (int i = 1; i < 1000000; i++) {
-            new FooBarQix(i).getFBQLine();
+        for (int i = 1; i < 1000001; i++) {
+            new FooBarQix(i).getReplacementLine();
         }
         System.out.println("1 000 000 en " + (System.currentTimeMillis() - startTime) + " ms.");
     }

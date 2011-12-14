@@ -1,74 +1,78 @@
-/**
- */
-public class FooBarQix {
-// -------------------------- INNER CLASSES --------------------------
+import java.util.HashMap;
+import java.util.Map;
 
-    private static enum  FBQEnum{
+public class FooBarQix {
+
+    public static void main(String[] args) {
+        for (int i = 1; i < 100; i++) {
+            System.out.println(new FooBarQix(i).getReplacementLine());
+        }
+    }
+
+    private static enum FBQEnum {
         Foo(3), Bar(5), Qix(7);
 
         private int value;
-        private char chValue;
 
         FBQEnum(int value) {
             assert value < 10;
             this.value = value;
-            this.chValue = String.valueOf(value).charAt(0);
         }
     }
 
-    private final int intToProcess;
-
-    private final StringBuilder line;
-
-    public FooBarQix(int i) {
-        intToProcess = i;
-        line = new StringBuilder();
-    }
-
-    public String getFBQLine() {
-        appendFBQPourDiviseur();
-        appendFBQPourChar();
-        appendNumberIfNoFBQ();
-        return line.toString();
-    }
-
-    private void appendFBQPourDiviseur() {
+    private static final Map<String, FBQEnum> ST_VALUE_TO_FBQ = new HashMap<String, FBQEnum>();
+    static {
         for (FBQEnum fbqEnum : FBQEnum.values()) {
-            if (intToProcess % fbqEnum.value == 0) {
-                appendFBQName(fbqEnum);
+            ST_VALUE_TO_FBQ.put(String.valueOf(fbqEnum.value), fbqEnum);
+        }
+    }
+
+    private final int input;
+    private final StringBuilder replacementLine;
+
+    public FooBarQix(int toAnalyse) {
+        input = toAnalyse;
+        replacementLine = new StringBuilder();
+    }
+
+    public String getReplacementLine() {
+        appendNamesByDivisibles();
+        appendNamesByContent();
+        appendNumberIfNoName();
+        return replacementLine.toString();
+    }
+
+    private void appendNamesByDivisibles() {
+        for (FBQEnum fbqEnum : FBQEnum.values()) {
+            if (isDivisibleBy(fbqEnum)) {
+                appendName(fbqEnum);
             }
         }
     }
 
-    private void appendFBQPourChar() {
-        String st = String.valueOf(intToProcess);
+    private boolean isDivisibleBy(FBQEnum fbqEnum) {
+        return input % fbqEnum.value == 0;
+    }
+
+    private void appendNamesByContent() {
+        String st = String.valueOf(input);
         for (char c : st.toCharArray()) {
-            appendFooBarQuixIfEquals(c);
+            appendNameIfExistsReplacementFor(c);
         }
     }
 
-    private void appendFooBarQuixIfEquals(char c) {
-        for (FBQEnum fbqEnum : FBQEnum.values()) {
-            if (c == fbqEnum.chValue){
-                appendFBQName(fbqEnum);
-            }
-        }
+    private void appendNameIfExistsReplacementFor(char c) {
+        FBQEnum fbqEnum = ST_VALUE_TO_FBQ.get(String.valueOf(c));
+        if (fbqEnum != null)
+            appendName(fbqEnum);
     }
 
-    private void appendFBQName(FBQEnum fbqEnum) {
-        line.append(fbqEnum.name());
+    private void appendName(FBQEnum fbqEnum) {
+        replacementLine.append(fbqEnum.name());
     }
 
-    private void appendNumberIfNoFBQ() {
-        if(line.length() == 0)
-            line.append(intToProcess);
-    }
-
-// --------------------------- main() method ---------------------------
-
-    public static void main(String[] args) {
-        for (int i = 1; i < 100; i++) {
-            System.out.println(new FooBarQix(i).getFBQLine());
-        }
+    private void appendNumberIfNoName() {
+        if (replacementLine.length() == 0)
+            replacementLine.append(input);
     }
 }
