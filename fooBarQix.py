@@ -7,6 +7,7 @@ for i in xrange(1, 101):
 	
 	# For a number i in the interval I=[1:100], we construct a list representing the 
 	# coefficient of it's polynom decomposition 8 = 0*10^1 + 8*10^0 -> [0,8] 
+	# (We don't bother dealing with 100 as it's the only one and it still works)
 	# Given this list, we match it against the prefixes and concatenate them 
 	out += "".join(map(lambda x : x in fbqd and fbqd[x] or "", [i/10, i%10])) 
 	
