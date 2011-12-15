@@ -13,16 +13,14 @@ public class NumberConverter {
 
         String entry = String.valueOf(numberToConvert);
         for (char character : entry.toCharArray()) {
-            Integer value = Integer.valueOf(String.valueOf(character));
-            result.//
-                append(numberLookup(value));
+            result.append(numberLookup(character));
         }
 
         return result.toString().isEmpty() ? entry : result.toString();
     }
 
     private String divisionLookup(Integer value) {
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
         if (value % 3 == 0) {
             result.append(NUMBER_3_CONVERTED);
         }
@@ -35,15 +33,15 @@ public class NumberConverter {
         return result.toString();
     }
     
-    private String numberLookup(Integer value) {
-        StringBuffer result = new StringBuffer();
-        if (value == 3) {
+    private String numberLookup(char value) {
+        StringBuilder result = new StringBuilder();
+        if (value == '3') {
             result.append(NUMBER_3_CONVERTED);
         }
-        if (value == 5) {
+        if (value == '5') {
             result.append(NUMBER_5_CONVERTED);
         }
-        if (value == 7) {
+        if (value == '7') {
             result.append(NUMBER_7_CONVERTED);
         }
         return result.toString();

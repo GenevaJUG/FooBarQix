@@ -14,12 +14,10 @@ public class NumberConverterTest {
         numberConverter = new NumberConverter();
     }
 
-
     @Test
     public void shouldReturn1WhenTheNumberIsDivisibleBy1() {
         assertThat(numberConverter.convert(1)).isEqualTo("1");
     }
-
 
     @Test
     public void shouldReturn2WhenTheNumberIsDivisibleBy2() {
@@ -100,5 +98,4 @@ public class NumberConverterTest {
     public void shouldReturnFooBarBarWhenTheNumberIs45() {
         assertThat(numberConverter.convert(45)).isEqualTo("FooBarBar");
     }
-
 }
