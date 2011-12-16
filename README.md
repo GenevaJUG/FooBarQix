@@ -16,3 +16,6 @@ How to run the tests ?
 	$ javac FooBarQix.java && java FooBarQix | jython testFooBarQix.py
 
 	
+Motivations
+===========
+	Enough of Java at work, I wanted to play around with different languages and as the problem was simple, I wanted to do it as simple as possible and didn't want to use any frameworks. 
