@@ -3,39 +3,22 @@ import java.util.Map;
 
 public class FooBarQix {
 
+
     public static void main(String[] args) {
         for (int i = 1; i < 100; i++) {
             System.out.println(new FooBarQix(i).getReplacementLine());
         }
     }
 
-    private static enum FBQEnum {
-        Foo(3), Bar(5), Qix(7);
-
-        private int value;
-
-        FBQEnum(int value) {
-            assert value < 10;
-            this.value = value;
-        }
-    }
-
-    private static final Map<String, FBQEnum> ST_VALUE_TO_FBQ = new HashMap<String, FBQEnum>();
-    static {
-        for (FBQEnum fbqEnum : FBQEnum.values()) {
-            ST_VALUE_TO_FBQ.put(String.valueOf(fbqEnum.value), fbqEnum);
-        }
-    }
-
     private final int input;
-    private final StringBuilder replacementLine;
+    private StringBuilder replacementLine;
 
     public FooBarQix(int toAnalyse) {
         input = toAnalyse;
-        replacementLine = new StringBuilder();
     }
 
     public String getReplacementLine() {
+        replacementLine = new StringBuilder();
         appendNamesByDivisibles();
         appendNamesByContent();
         appendNumberIfNoName();
@@ -74,4 +57,23 @@ public class FooBarQix {
         if (replacementLine.length() == 0)
             replacementLine.append(input);
     }
+
+    private static enum FBQEnum {
+        Foo(3), Bar(5), Qix(7);
+
+        private int value;
+
+        FBQEnum(int value) {
+            assert value < 10;
+            this.value = value;
+        }
+    }
+
+    private static final Map<String, FBQEnum> ST_VALUE_TO_FBQ = new HashMap<String, FBQEnum>();
+    static {
+        for (FBQEnum fbqEnum : FBQEnum.values()) {
+            ST_VALUE_TO_FBQ.put(String.valueOf(fbqEnum.value), fbqEnum);
+        }
+    }
+
 }
