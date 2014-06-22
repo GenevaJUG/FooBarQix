@@ -1,0 +1,4 @@
+Une solution codée en vitesse par Maxime Nowak et Xavier Bourguignon
+On s'est plus concentré sur les tests avec l'utilisation de Cucumber.
+
+Pour executer le programme: mvn exec:java
